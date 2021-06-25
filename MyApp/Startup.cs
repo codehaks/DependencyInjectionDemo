@@ -27,7 +27,7 @@ namespace MyApp
             services.AddDbContext<AppDbContext>
                 (options => options.UseSqlite("Data Source=app.sqlite"));
 
-            services.AddTransient<ITimeService, TimeService>();
+            services.AddSingleton<ITimeService, TimeService>();
 
             services.AddMvc();
 
