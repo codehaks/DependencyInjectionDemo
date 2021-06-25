@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyApp.Common;
+using MyApp.Controllers;
 using MyApp.Data;
 using System;
 
@@ -27,7 +28,11 @@ namespace MyApp
             services.AddDbContext<AppDbContext>
                 (options => options.UseSqlite("Data Source=app.sqlite"));
 
-            services.AddSingleton<ITimeService, TimeService>();
+            services.AddTransient<MyService>();
+            services.AddTransient<MySecondService>();
+            services.AddTransient<MyRepository>();
+
+            services.AddScoped<ITimeService, TimeService>();
 
             services.AddMvc();
 
