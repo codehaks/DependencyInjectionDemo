@@ -2,7 +2,7 @@
 
 namespace MyApp.Common
 {
-    public interface IMyDateTime
+    public interface ITimeService
     {
     
         DateTime GetTime();

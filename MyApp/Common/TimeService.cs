@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace MyApp.Common
 {
-    public class MyDateTime : IMyDateTime
+    public class TimeService : ITimeService
     {
         public DateTime Now { get; set; }
-        public MyDateTime()
+        public TimeService()
         {
             Now = DateTime.Now;
         }

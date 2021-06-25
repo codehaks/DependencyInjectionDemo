@@ -10,9 +10,9 @@ namespace MyApp.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly IMyDateTime _time;
+        private readonly ITimeService _time;
 
-        public IndexModel(IMyDateTime time)
+        public IndexModel(ITimeService time)
         {
             _time = time;
 
