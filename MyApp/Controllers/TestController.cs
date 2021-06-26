@@ -59,10 +59,12 @@ namespace MyApp.Controllers
         [Route("api/test")]
         public IActionResult Index()
         {
-            Console.WriteLine(_myService.GetTime().Ticks);
+            var results = new List<string>();
+            results.Add($"MyService : {_myService.GetTime().Ticks}");
             Thread.Sleep(1000);
-            Console.WriteLine(_mySecondService.GetTime().Ticks);
-            return Ok();
+            results.Add($"MySecondSerice : {_mySecondService.GetTime().Ticks}");
+
+            return Ok(results);
         }
     }
 }
