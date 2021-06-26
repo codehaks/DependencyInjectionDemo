@@ -45,6 +45,7 @@ namespace MyApp.Controllers
 
         public DateTime GetTime() => _timeService.GetTime();
     }
+
     public class TestController : Controller
     {
         private readonly MyService _myService;
@@ -58,6 +59,17 @@ namespace MyApp.Controllers
 
         [Route("api/test")]
         public IActionResult Index()
+        {
+            var results = new List<string>();
+            results.Add($"MyService : {_myService.GetTime().Ticks}");
+            Thread.Sleep(1000);
+            results.Add($"MySecondSerice : {_mySecondService.GetTime().Ticks}");
+
+            return Ok(results);
+        }
+
+        [Route("api/test2")]
+        public IActionResult Index2()
         {
             var results = new List<string>();
             results.Add($"MyService : {_myService.GetTime().Ticks}");

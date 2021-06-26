@@ -10,18 +10,9 @@ using System;
 
 namespace MyApp
 {
-    public class MyClass
-    {
-        public DateTime Now { get; set; }
-    }
 
     public class Startup
     {
-
-        public Startup()
-        {
-
-        }
 
         public void ConfigureServices(IServiceCollection services)
         {
