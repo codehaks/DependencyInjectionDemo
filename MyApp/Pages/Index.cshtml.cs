@@ -10,18 +10,9 @@ namespace MyApp.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ITimeService _time;
-
-        public IndexModel(ITimeService time)
-        {
-            _time = time;
-
-        }
-
-        public DateTime NowTime { get; set; }
         public void OnGet()
         {
-            NowTime = _time.GetTime();
+         
         }
     }
 }
