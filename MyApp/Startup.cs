@@ -23,7 +23,7 @@ namespace MyApp
             services.AddTransient<MySecondService>();
             services.AddTransient<MyRepository>();
 
-            services.AddScoped<ITimeService, TimeService>();
+            services.AddTransient<ITimeService, TimeService>();
 
             services.AddMvc();
 
