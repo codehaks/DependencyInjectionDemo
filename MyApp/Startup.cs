@@ -10,7 +10,17 @@ using System;
 
 namespace MyApp
 {
+    public static class ConfigServices
+    {
+        public static void AddServices(this IServiceCollection services)
+        {
+            services.AddTransient<MyService>();
+            services.AddTransient<MySecondService>();
+            services.AddTransient<MyRepository>();
+            services.AddTransient<ITimeService, TimeService>();
+        }
 
+    }
     public class Startup
     {
 
@@ -19,11 +29,8 @@ namespace MyApp
             services.AddDbContext<AppDbContext>
                 (options => options.UseSqlite("Data Source=app.sqlite"));
 
-            services.AddTransient<MyService>();
-            services.AddTransient<MySecondService>();
-            services.AddTransient<MyRepository>();
-
-            services.AddTransient<ITimeService, TimeService>();
+            //ConfigServices.Register(services);
+            services.AddServices();
 
             services.AddMvc();
 
